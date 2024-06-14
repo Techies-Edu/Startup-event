@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Event</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .background {
+            background-image: url('Desktop - 2.png'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+        }
+        .nav {
+            backdrop-filter: blur(4.35px);
+            border: 1px solid rgba(255, 255, 255, 0.637);
+        }
+        .bg {
+            filter: blur(100px);
+            opacity: 0.4;
+        }
+        button {
+            backdrop-filter: blur(4.35px);
+            border: 1px solid rgba(255, 255, 255, 0.637);
+        }
+        .cursor-circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgb(255, 196, 0);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+            filter: blur(80px);
+        }
+    </style>
+</head>
+<body class="background max-md:h-[150vh] flex flex-col items-center overflow-hidden justify-center text-white">
+    <!-- Circle that tracks the cursor -->
+    <div id="cursor-circle" class="cursor-circle"></div>
+
+    <div class="h-60 bg top-50 w-80 bg-white absolute z-0"></div>
+    <!-- Navbar -->
+    <nav class="w-11/12 nav md:w-3/4 backdrop-blur-xl rounded-full py-4 px-6 mb-12 mt-2 flex justify-between items-center">
+        <img src="logo.png" alt="Logo" class="w-16"> <!-- Replace with your logo URL -->
+        <a href="#" class="text-white font-bold">Event Link</a>
+    </nav>
+
+    <div class="grid m-4">
+        <h1 class="text-3xl font-bold">Share your card on Social media</h1>
+    </div>
+
+    <!-- Two download sections with images and buttons -->
+    <div class="grid z-10 grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div class="flex flex-col items-center">
+            <img src="Attendee card boys.png" alt="Image 1" class="w-64 mb-4"> <!-- Replace with your first image URL -->
+            <a href="https://drive.google.com/file/d/1yBorQ_lfDmyQRH0pvmT6_COzw21Vh1rx/view" download="document1.pdf">
+                <button class="text-white font-bold py-2 px-4 rounded-full mb-2">
+                    Download for Boy?
+                </button>
+            </a>
+        </div>
+        <div class="flex z-10 flex-col items-center">
+            <img src="Attendee card Girls.png" alt="Image 2" class="w-64 mb-4"> <!-- Replace with your second image URL -->
+            <a href="https://drive.google.com/file/d/1D1BBPpCSI1mXI98ZqrF4ZipROXPoKVik/view?usp=sharing" download="document2.pdf">
+                <button class="text-white font-bold py-2 px-4 rounded-full mb-2">
+                    Download for Girl?
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const cursorCircle = document.getElementById('cursor-circle');
+            cursorCircle.style.left = `${e.clientX}px`;
+            cursorCircle.style.top = `${e.clientY}px`;
+        });
+    </script>
+</body>
+</html>
